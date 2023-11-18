@@ -21,7 +21,7 @@
 		"test": "node ./lib/index.test.js"
 	},
 	"devDependencies": {
-		"@types/node": "20.9.1",
+		"@types/node": "20.9.2",
 		"follow-redirects": "1.15.3",
 		"https-proxy-agent": "7.0.2",
 		"proxy-from-env": "1.1.0"
