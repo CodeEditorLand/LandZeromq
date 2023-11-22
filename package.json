@@ -1,30 +1,39 @@
 {
 	"name": "@vscode/zeromq",
-	"version": "0.2.0",
+	"version": "0.0.1",
+	"private": "false",
 	"description": "A module for copying zeromq binaries built using Azure Pipelines into the zeromq package.",
-	"keywords": [
-		"zeromq"
-	],
-	"homepage": "https://github.com/microsoft/vscode-zeromq#readme",
+	"homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
 	"bugs": {
-		"url": "https://github.com/microsoft/vscode-zeromq/issues"
+		"url": "https://github.com/CodeEditorLand/CodeEditorLand/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/microsoft/vscode-zeromq.git"
+		"url": "git+https://github.com/CodeEditorLand/CodeEditorLand.git"
 	},
 	"license": "MIT",
-	"author": "Don Jayamanne",
+	"author": {
+		"name": "Nikola Hristov",
+		"email": "nikola@nikolahristov.tech",
+		"url": "https://nikolahristov.tech"
+	},
+	"publisher": "playform",
+	"type": "module",
 	"main": "lib/index.js",
 	"scripts": {
 		"downloadBinaries": "node ./build/prePublish.js",
+		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
 		"test": "node ./lib/index.test.js"
 	},
 	"devDependencies": {
-		"@types/node": "20.9.2",
+		"@types/node": "20.9.4",
 		"follow-redirects": "1.15.3",
 		"https-proxy-agent": "7.0.2",
-		"proxy-from-env": "1.1.0"
+		"proxy-from-env": "1.1.0",
+		"typescript-esbuild": "0.3.1"
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"overrides": {
 		"agent-base": "6.0.2"
