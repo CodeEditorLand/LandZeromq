@@ -26,11 +26,11 @@
 		"test": "node ./lib/index.test.js"
 	},
 	"devDependencies": {
-		"@types/node": "20.10.2",
+		"@types/node": "20.10.3",
 		"follow-redirects": "1.15.3",
 		"https-proxy-agent": "7.0.2",
 		"proxy-from-env": "1.1.0",
-		"typescript-esbuild": "0.3.1"
+		"typescript-esbuild": "0.3.2"
 	},
 	"publishConfig": {
 		"access": "public"
