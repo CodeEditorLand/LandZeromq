@@ -1,41 +1,32 @@
 {
-	"name": "@vscode/zeromq",
-	"version": "0.0.1",
-	"private": "false",
-	"description": "A module for copying zeromq binaries built using Azure Pipelines into the zeromq package.",
-	"homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
-	"bugs": {
-		"url": "https://github.com/CodeEditorLand/CodeEditorLand/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/CodeEditorLand/CodeEditorLand.git"
-	},
-	"license": "SEE LICENSE IN LICENSE",
-	"author": {
-		"name": "Nikola Hristov",
-		"email": "nikola@nikolahristov.tech",
-		"url": "https://nikolahristov.tech"
-	},
-	"publisher": "playform",
-	"type": "module",
-	"main": "lib/index.js",
-	"scripts": {
-		"downloadBinaries": "node ./build/prePublish.js",
-		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
-		"test": "node ./lib/index.test.js"
-	},
-	"devDependencies": {
-		"@types/node": "20.10.4",
-		"follow-redirects": "1.15.3",
-		"https-proxy-agent": "7.0.2",
-		"proxy-from-env": "1.1.0",
-		"typescript-esbuild": "0.3.2"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"overrides": {
-		"agent-base": "6.0.2"
-	}
+  "name": "@vscode/zeromq",
+  "version": "0.2.0",
+  "description": "A module for copying zeromq binaries built using Azure Pipelines into the zeromq package.",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoft/vscode-zeromq.git"
+  },
+  "keywords": [
+    "zeromq"
+  ],
+  "author": "Don Jayamanne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/microsoft/vscode-zeromq/issues"
+  },
+  "homepage": "https://github.com/microsoft/vscode-zeromq#readme",
+  "scripts": {
+    "test": "node ./lib/index.test.js",
+    "downloadBinaries": "node ./build/prePublish.js"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.0",
+    "follow-redirects": "^1.15.2",
+    "https-proxy-agent": "^5.0.1",
+    "proxy-from-env": "^1.1.0"
+  },
+  "overrides": {
+    "agent-base": "^6.0.2"
+  }
 }
