@@ -7,9 +7,6 @@
     "type": "git",
     "url": "git+https://github.com/microsoft/vscode-zeromq.git"
   },
-  "keywords": [
-    "zeromq"
-  ],
   "author": "Don Jayamanne",
   "license": "MIT",
   "bugs": {
