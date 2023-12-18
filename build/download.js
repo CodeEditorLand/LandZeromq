@@ -2,7 +2,6 @@
 // Licensed under the MIT License.
 
 // @ts-check
-"use strict";
 
 const path = require("path");
 const fs = require("fs");
@@ -57,8 +56,8 @@ async function download(_url, dest, opts) {
 				if (response.statusCode !== 200) {
 					reject(
 						new Error(
-							`Download ${_url} failed with ${response.statusCode}`
-						)
+							`Download ${_url} failed with ${response.statusCode}`,
+						),
 					);
 					return;
 				}
@@ -151,7 +150,7 @@ async function getAssetsFromGithubApi(opts) {
 	console.log(
 		`Found ${assets.length} assets (${assets
 			.map((a) => a.name)
-			.join(", ")}) to be downloaded for vscode-zeromq`
+			.join(", ")}) to be downloaded for vscode-zeromq`,
 	);
 	return assets.map((a) => ({ url: a.url, name: a.name }));
 }
@@ -226,7 +225,7 @@ async function downloadAssetFromGithubApi(opts, asset) {
 		}
 
 		console.log(
-			`Downloading asset ${asset.name} from ${asset.url} into ${assetDownloadFile}`
+			`Downloading asset ${asset.name} from ${asset.url} into ${assetDownloadFile}`,
 		);
 
 		downloadOpts.headers.accept = "application/octet-stream";
@@ -356,7 +355,7 @@ function unzipLinux(zipPath, destinationDir) {
 				resolve();
 			} else {
 				const error = new Error(
-					`Failed to unzip ${zipPath}, exited with error code: ${code} and error message: ${stderr}`
+					`Failed to unzip ${zipPath}, exited with error code: ${code} and error message: ${stderr}`,
 				);
 				console.error(error);
 				reject(error);
@@ -395,6 +394,6 @@ module.exports.download = async (opts) => {
 	const assets = await getAssetsFromGithubApi(opts);
 
 	await Promise.all(
-		assets.map((asset) => downloadAssetFromGithubApi(opts, asset))
+		assets.map((asset) => downloadAssetFromGithubApi(opts, asset)),
 	);
 };
