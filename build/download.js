@@ -28,7 +28,7 @@ function isGithubUrl(_url) {
 async function download(_url, dest, opts) {
 	const proxy = proxy_from_env.getProxyForUrl(url.parse(_url));
 	if (proxy !== "") {
-		var HttpsProxyAgent = require("https-proxy-agent");
+		const HttpsProxyAgent = require("https-proxy-agent");
 		opts = {
 			...opts,
 			agent: new HttpsProxyAgent(proxy),
@@ -40,8 +40,8 @@ async function download(_url, dest, opts) {
 		await fsMkdir(dir, { recursive: true });
 	}
 
-	if (opts.headers && opts.headers.authorization && !isGithubUrl(_url)) {
-		delete opts.headers.authorization;
+	if (opts.headers?.authorization && !isGithubUrl(_url)) {
+		opts.headers.authorization = undefined;
 	}
 
 	return new Promise((resolve, reject) => {
@@ -79,7 +79,7 @@ function get(_url, opts) {
 
 	const proxy = proxy_from_env.getProxyForUrl(url.parse(_url));
 	if (proxy !== "") {
-		var HttpsProxyAgent = require("https-proxy-agent");
+		const HttpsProxyAgent = require("https-proxy-agent");
 		opts = {
 			...opts,
 			agent: new HttpsProxyAgent(proxy),
@@ -94,7 +94,7 @@ function get(_url, opts) {
 		};
 		https.get(opts, (response) => {
 			if (response.statusCode !== 200) {
-				reject(new Error("Request failed: " + response.statusCode));
+				reject(new Error(`Request failed: ${response.statusCode}`));
 			}
 
 			response.on("data", (d) => {
@@ -137,11 +137,11 @@ async function getAssetsFromGithubApi(opts) {
 	try {
 		jsonRelease = JSON.parse(release);
 	} catch (e) {
-		throw new Error("Malformed API response: " + e.stack);
+		throw new Error(`Malformed API response: ${e.stack}`);
 	}
 
 	if (!jsonRelease.assets) {
-		throw new Error("Bad API response: " + JSON.stringify(release));
+		throw new Error(`Bad API response: ${JSON.stringify(release)}`);
 	}
 	const assets = jsonRelease.assets.filter((a) => a.name.endsWith(".zip"));
 	if (!assets.length) {
@@ -197,10 +197,10 @@ async function downloadAssetFromGithubApi(opts, asset) {
 	const folder = `${platform}-${arch}`;
 
 	if (!platform) {
-		throw new Error("Platform not found in asset name: " + asset.name);
+		throw new Error(`Platform not found in asset name: ${asset.name}`);
 	}
 	if (!arch) {
-		throw new Error("Arch not found in asset name: " + asset.name);
+		throw new Error(`Arch not found in asset name: ${asset.name}`);
 	}
 	if (!fs.existsSync(tmpDir)) {
 		fs.mkdirSync(tmpDir);
@@ -212,7 +212,7 @@ async function downloadAssetFromGithubApi(opts, asset) {
 	}
 	// We can just use the cached binary
 	if (!opts.force && (await fsExists(assetDownloadFile))) {
-		console.log("Using cached download: " + assetDownloadFile);
+		console.log(`Using cached download: ${assetDownloadFile}`);
 	} else {
 		const downloadOpts = {
 			headers: {
@@ -287,10 +287,10 @@ function parseAsset(asset) {
 	});
 
 	if (!platform) {
-		throw new Error("Platform not found in asset name: " + asset.name);
+		throw new Error(`Platform not found in asset name: ${asset.name}`);
 	}
 	if (archs.size === 0) {
-		throw new Error("Arch not found in asset name: " + asset.name);
+		throw new Error(`Arch not found in asset name: ${asset.name}`);
 	}
 
 	return {
@@ -311,15 +311,13 @@ function unzipWindows(zipPath, destinationDir) {
 	return new Promise((resolve, reject) => {
 		zipPath = sanitizePathForPowershell(zipPath);
 		destinationDir = sanitizePathForPowershell(destinationDir);
-		const expandCmd =
-			"powershell -ExecutionPolicy Bypass -Command Expand-Archive " +
-			[
-				"-Path",
-				zipPath,
-				"-DestinationPath",
-				destinationDir,
-				"-Force",
-			].join(" ");
+		const expandCmd = `powershell -ExecutionPolicy Bypass -Command Expand-Archive ${[
+			"-Path",
+			zipPath,
+			"-DestinationPath",
+			destinationDir,
+			"-Force",
+		].join(" ")}`;
 		child_process.exec(expandCmd, (err, _stdout, stderr) => {
 			if (err) {
 				reject(err);
@@ -347,7 +345,7 @@ function unzipLinux(zipPath, destinationDir) {
 		]);
 
 		let stderr = "";
-		proc.stderr.on("data", (data) => (stderr = stderr + data.toString()));
+		proc.stderr.on("data", (data) => (stderr += data.toString()));
 
 		proc.once("exit", (code) => {
 			if (code === 0) {
