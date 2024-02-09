@@ -25,16 +25,16 @@
     "prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'"
   },
   "devDependencies": {
-    "@types/node": "^18.15.0",
-    "follow-redirects": "^1.15.2",
-    "https-proxy-agent": "^5.0.1",
-    "proxy-from-env": "^1.1.0",
+    "@types/node": "18.15.0",
+    "follow-redirects": "1.15.2",
+    "https-proxy-agent": "5.0.1",
+    "proxy-from-env": "1.1.0",
     "typescript-esbuild": "0.3.6"
   },
   "publishConfig": {
     "access": "public"
   },
   "overrides": {
-    "agent-base": "^6.0.2"
+    "agent-base": "6.0.2"
   }
 }
