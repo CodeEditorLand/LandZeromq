@@ -21,9 +21,9 @@
     "downloadBinaries": "node ./build/prePublish.js"
   },
   "devDependencies": {
-    "@types/node": "18.15.0",
-    "follow-redirects": "1.15.2",
-    "https-proxy-agent": "5.0.1",
+    "@types/node": "20.11.28",
+    "follow-redirects": "1.15.6",
+    "https-proxy-agent": "7.0.4",
     "proxy-from-env": "1.1.0"
   },
   "overrides": {
