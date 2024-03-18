@@ -2,23 +2,23 @@
   "name": "@vscode/zeromq",
   "version": "0.2.1",
   "description": "A module for copying zeromq binaries built using Azure Pipelines into the zeromq package.",
-  "keywords": [
-    "zeromq"
-  ],
-  "homepage": "https://github.com/microsoft/vscode-zeromq#readme",
-  "bugs": {
-    "url": "https://github.com/microsoft/vscode-zeromq/issues"
-  },
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/microsoft/vscode-zeromq.git"
   },
-  "license": "MIT",
+  "keywords": [
+    "zeromq"
+  ],
   "author": "Don Jayamanne",
-  "main": "lib/index.js",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/microsoft/vscode-zeromq/issues"
+  },
+  "homepage": "https://github.com/microsoft/vscode-zeromq#readme",
   "scripts": {
-    "downloadBinaries": "node ./build/prePublish.js",
-    "test": "node ./lib/index.test.js"
+    "test": "node ./lib/index.test.js",
+    "downloadBinaries": "node ./build/prePublish.js"
   },
   "devDependencies": {
     "@types/node": "^18.15.0",
