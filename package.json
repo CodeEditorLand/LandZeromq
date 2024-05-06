@@ -30,7 +30,7 @@
 	"devDependencies": {
 		"@playform/build": "0.0.7",
 		"@playform/document": "0.0.6",
-		"@types/node": "20.12.7",
+		"@types/node": "20.12.10",
 		"follow-redirects": "1.15.6",
 		"https-proxy-agent": "7.0.4",
 		"proxy-from-env": "1.1.0"
