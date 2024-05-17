@@ -1,26 +1,6 @@
 {
 	"name": "@vscode/zeromq",
-	"version": "0.0.1",
-	"private": false,
 	"description": "A module for copying zeromq binaries built using Azure Pipelines into the zeromq package.",
-	"keywords": [
-		"land"
-	],
-	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/LandZeroMQ#readme",
-	"bugs": {
-		"url": "HTTPS://GitHub.Com/CodeEditorLand/LandZeroMQ/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+HTTPS://github.com/CodeEditorLand/LandZeroMQ.git"
-	},
-	"license": "SEE LICENSE IN LICENSE",
-	"author": {
-		"name": "🛬 Land —",
-		"email": "Land@PlayForm.Cloud",
-		"url": "HTTPS://Land.PlayForm.Cloud"
-	},
-	"type": "module",
 	"main": "lib/index.js",
 	"scripts": {
 		"Document": "Document 'Source/**/*.ts'",
@@ -29,14 +9,10 @@
 	},
 	"devDependencies": {
 		"@playform/build": "0.0.7",
-		"@playform/document": "0.0.6",
 		"@types/node": "20.12.10",
 		"follow-redirects": "1.15.6",
 		"https-proxy-agent": "7.0.4",
 		"proxy-from-env": "1.1.0"
-	},
-	"publishConfig": {
-		"access": "public"
 	},
 	"overrides": {
 		"agent-base": "6.0.2"
