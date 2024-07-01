@@ -8,7 +8,7 @@
 	"devDependencies": {
 		"@types/node": "20.14.9",
 		"follow-redirects": "1.15.6",
-		"https-proxy-agent": "7.0.4",
+		"https-proxy-agent": "7.0.5",
 		"proxy-from-env": "1.1.0"
 	},
 	"overrides": {
