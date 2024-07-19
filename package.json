@@ -6,12 +6,12 @@
 		"downloadBinaries": "node ./build/prePublish.js"
 	},
 	"devDependencies": {
-		"@types/node": "^18.15.0",
-		"follow-redirects": "^1.15.2",
-		"https-proxy-agent": "^5.0.1",
-		"proxy-from-env": "^1.1.0"
+		"@types/node": "20.14.11",
+		"follow-redirects": "1.15.6",
+		"https-proxy-agent": "7.0.5",
+		"proxy-from-env": "1.1.0"
 	},
 	"overrides": {
-		"agent-base": "^6.0.2"
+		"agent-base": "6.0.2"
 	}
 }
