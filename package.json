@@ -1,17 +1,32 @@
 {
-	"description": "A module for copying zeromq binaries built using Azure Pipelines into the zeromq package.",
-	"devDependencies": {
-		"@types/node": "22.10.1",
-		"follow-redirects": "1.15.9",
-		"https-proxy-agent": "7.0.5",
-		"proxy-from-env": "1.1.0"
-	},
-	"main": "lib/index.js",
-	"name": "@vscode/zeromq",
-	"overrides": {
-		"agent-base": "6.0.2"
-	},
-	"scripts": {
-		"downloadBinaries": "node ./build/prePublish.js"
-	}
+  "name": "@vscode/zeromq",
+  "version": "0.2.5",
+  "description": "A module for copying zeromq binaries built using Azure Pipelines into the zeromq package.",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoft/vscode-zeromq.git"
+  },
+  "keywords": [
+    "zeromq"
+  ],
+  "author": "Don Jayamanne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/microsoft/vscode-zeromq/issues"
+  },
+  "homepage": "https://github.com/microsoft/vscode-zeromq#readme",
+  "scripts": {
+    "test": "node ./lib/index.test.js",
+    "downloadBinaries": "node ./build/prePublish.js"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.0",
+    "follow-redirects": "^1.15.2",
+    "https-proxy-agent": "^5.0.1",
+    "proxy-from-env": "^1.1.0"
+  },
+  "overrides": {
+    "agent-base": "^6.0.2"
+  }
 }
